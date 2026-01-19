@@ -1,10 +1,9 @@
-import Header from "@/components/layout/Header/header";
+import '@/app/globals.css'
 
 export default function Home() {
   return (
     <div>
-      <Header />
-
+      <p>Hola Mundo, esta es la página principal</p>
     </div>
   );
 }

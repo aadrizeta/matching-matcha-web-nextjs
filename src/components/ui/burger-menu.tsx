@@ -3,14 +3,13 @@
 interface BurgerMenuProps {
     isOpen: boolean;
     onToggle: () => void;
-    classname?: string;
 }
 
-export default function BurgerMenu({ isOpen, onToggle, classname = '' }: BurgerMenuProps) {
+export default function BurgerMenu({ isOpen, onToggle }: BurgerMenuProps) {
     return (
         <button
             onClick={onToggle}
-            className={`relative w-7.5 h-7.5 focus:outline-none ${classname}`}
+            className={`relative w-7.5 h-7.5 focus:outline-none cursor-pointer`}
         >
             {/* Bar 1 */}
             <span

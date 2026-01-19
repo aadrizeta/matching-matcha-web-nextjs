@@ -8,7 +8,20 @@
   --dark_gray: rgb(70, 70, 70); /*burger_menu*/
   --accent_blue: #069fe6; /*cart_badge*/
   --main_green: #8B9B81;
+
+  /* ===== PADDINGS RESPONSIVOS ===== */
+    --padding-mobile: 1rem;
+    /* 16px - Mobile */
+    --padding-tablet: 1.25rem;
+    /* 20px - Tablet (md: 768px) */
+    --padding-desktop: 1.5rem;
+    /* 32px - Desktop (lg: 1024px) */
+
+    /* ===== MAX-WIDTH ===== */
+    --max-width-container: 1500px;
+    /* 5xl en Tailwind */
 }
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -46,6 +59,9 @@
   /* ===== FUENTES ===== */
   --font_heading: 'Encabezados', Arial, Helvetica, sans-serif;
   --font_body: 'Cuerpo', Arial, Helvetica, sans-serif;
+
+  /* ==== MAX-WIDTH CONTAINER ==== */
+  --max-width-container: var(--max-width-container);
 }
 
 /*
@@ -68,12 +84,42 @@ COMPONENTES REUTILIZABLES
   }
   .scroll-text{
     @apply flex justify-between items-center gap-12 overflow-hidden whitespace-nowrap shrink-0 text-foreground ;
-    animation: scrollLeft 50s linear infinite;
+    animation: scrollLeft 80s linear infinite;
   }
 
   /* ======= HEADER -- NAVBAR ======== */
   .header{
     @apply sticky top-0 z-50 bg-white border-b;
+  }
+    .main-header {
+      @apply flex justify-between items-center mx-auto max-w-container h-15;
+      padding-left: var(--padding-mobile);
+      padding-right: var(--padding-mobile);
+    }
+
+    @media (min-width: 768px) {
+      .main-header {
+        @apply h-20;
+        padding-left: var(--padding-tablet);
+        padding-right: var(--padding-tablet);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .main-header {
+        padding-left: var(--padding-desktop);
+        padding-right: var(--padding-desktop);
+      }
+    }
+  .desktop-navbar{
+    @apply hidden md:flex justify-between text-lg;
+  }
+  .nav-link{
+    @apply text-lg transition-all duration-300 ease-out hover:scale-120 relative inline-block;
+    @apply after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-dark_gray after:transition-all after:duration-300 after:ease-out hover:after:w-full;
+  }
+  .nav-link-active{
+    @apply font-bold;
   }
 }
 
