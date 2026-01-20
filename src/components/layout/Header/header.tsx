@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from "react";
-import BurgerMenu from "@/components/ui/burger-menu";
+import BurgerMenu from "@/components/ui/header/burger-menu";
 import NavbarDesktop from "./navbar";
 import '@/app/globals.css';
 import MobileMenu from "./mobilemenu";
-import LogoImage from "@/components/ui/logo-image";
-import CartButton from "@/components/ui/sidecartButton";
-import TopStrip from "@/components/ui/header-top-script";
+import LogoImage from "@/components/ui/header/logo-image";
+import CartButton from "@/components/ui/header/sidecartButton";
+import TopStrip from "@/components/ui/header/header-top-strip";
 
 export default function Header() {
 

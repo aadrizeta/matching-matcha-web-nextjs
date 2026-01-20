@@ -1,11 +1,12 @@
 'use client';
 import '@/app/globals.css'
-import MobileMenu from '@/components/layout/Header/mobilemenu';
+import IgButton from '@/components/ui/footer/ig-button';
 
 export default function Home() {
   return (
-    <div>
+    <div className='h-400'>
       <p>Hola Mundo, esta es la página principal</p>
+      <IgButton />
     </div>
   );
 }

@@ -8,6 +8,8 @@
   --dark_gray: rgb(70, 70, 70); /*burger_menu*/
   --accent_blue: #069fe6; /*cart_badge*/
   --main_green: #8B9B81;
+  /* ig_button_hover */
+  --ig-hover-gradient: linear-gradient(45deg, #515bd4, #8134af, #dd2a7b, #f58529);
 
   /* ===== PADDINGS RESPONSIVOS ===== */
     --padding-mobile: 1rem;
@@ -55,6 +57,7 @@
   --color-accent_blue: var(--accent_blue);
   --color-light_gray: var(--light_gray);
   --color-dark_gray: var(--dark_gray);
+  --color-ig-hover-gradient: var(--ig-hover-gradient);
 
   /* ===== FUENTES ===== */
   --font_heading: 'Encabezados', Arial, Helvetica, sans-serif;
@@ -71,6 +74,9 @@ COMPONENTES REUTILIZABLES
 */
 @layer components {
 
+  .header{
+    @apply sticky top-0 z-60 bg-white border-b;
+  }
   /* ============================================= */
   /*==========HEADER --TOP STRIP SCROLL============*/
   /* ============================================= */
@@ -88,27 +94,8 @@ COMPONENTES REUTILIZABLES
   }
 
   /* ============================================= */
-  /* ======= HEADER -- NAVBAR ======== */
+  /* ============== HEADER -- NAVBAR ============= */
   /* ============================================= */
-  .header{
-    @apply sticky top-0 z-60 bg-white border-b;
-  }
-  .logo-container {
-    @apply shrink-0 mt-1.5 cursor-pointer;
-  }
-  .header-logo-mobile {
-    @apply shrink-0;
-  }
-  .header-logo-desktop {
-    @apply shrink-0;
-  }
-  .header-mobile-tablet {
-    @apply flex justify-between items-center w-full gap-4 md:hidden;
-  }
-  /* Header desktop layout */
-  .header-desktop {
-    @apply hidden md:flex md:justify-between md:items-center md:w-full md:gap-8;
-  }
   .main-header {
     @apply flex justify-between items-center mx-auto max-w-container h-20;
     padding-left: var(--padding-mobile);
@@ -128,6 +115,18 @@ COMPONENTES REUTILIZABLES
       padding-right: var(--padding-desktop);
     }
   }
+
+  .logo-container {
+    @apply shrink-0 mt-1.5 cursor-pointer;
+  }
+
+  .header-mobile-tablet {
+    @apply flex justify-between items-center w-full gap-4 md:hidden;
+  }
+  .header-desktop {
+    @apply hidden md:flex md:justify-between md:items-center md:w-full md:gap-8;
+  }
+  
   .desktop-navbar{
     @apply hidden md:flex justify-between text-lg;
   }
@@ -138,7 +137,7 @@ COMPONENTES REUTILIZABLES
   .nav-link-active{
     @apply font-bold;
   }
-
+  
   /*======== Dropdown menu styles ======= */
   .dropdown-menu{
     @apply fixed inset-0 bg-background md:hidden z-40;
@@ -146,6 +145,19 @@ COMPONENTES REUTILIZABLES
   .mobile-navbar{
     @apply fixed top-0 left-0 w-full h-full bg-background z-50 md:hidden transform transition-transform duration-300 ease-in-out;
   }
+
+  /* ============================================= */
+  /* ================== FOOTER =================== */
+  /* ============================================= */
+  .footer{
+    @apply bg-light_gray;
+  }
+
+  /*======== BOTÓN INSTAGRAM  ========== */
+  .ig-button{
+    @apply mx-8 px-5 py-3 bg-main_green text-background rounded-2xl cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:bg-ig-hover-gradient;
+  }
+
 }
 
 body {
