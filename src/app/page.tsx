@@ -1,4 +1,6 @@
+'use client';
 import '@/app/globals.css'
+import MobileMenu from '@/components/layout/Header/mobilemenu';
 
 export default function Home() {
   return (

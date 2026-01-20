@@ -89,28 +89,50 @@ COMPONENTES REUTILIZABLES
 
   /* ======= HEADER -- NAVBAR ======== */
   .header{
-    @apply sticky top-0 z-50 bg-white border-b;
+    @apply sticky top-0 z-60 bg-white border-b;
   }
+  .logo-container {
+    /* Estilos para mobile/tablet por defecto */
+    @apply shrink-0;
+  }
+  @media (min-width: 1024px) {
+    .logo-container {
+    @apply shrink-0;
+      /* Estilos para desktop */
+    }
+  }
+  .header-logo-mobile {
+    @apply shrink-0;
+  }
+  .header-logo-desktop {
+    @apply shrink-0;
+  }
+  .header-mobile-tablet {
+    @apply flex justify-between items-center w-full gap-4;
+  }
+  /* Header desktop layout */
+  .header-desktop {
+    @apply w-full;
+  }
+  .main-header {
+    @apply flex justify-between items-center mx-auto max-w-container h-20;
+    padding-left: var(--padding-mobile);
+    padding-right: var(--padding-mobile);
+  }
+
+  @media (min-width: 768px) {
     .main-header {
-      @apply flex justify-between items-center mx-auto max-w-container h-15;
-      padding-left: var(--padding-mobile);
-      padding-right: var(--padding-mobile);
+      @apply h-20;
+      padding-left: var(--padding-tablet);
+      padding-right: var(--padding-tablet);
     }
-
-    @media (min-width: 768px) {
-      .main-header {
-        @apply h-20;
-        padding-left: var(--padding-tablet);
-        padding-right: var(--padding-tablet);
-      }
+  }
+  @media (min-width: 1024px) {
+    .main-header {
+      padding-left: var(--padding-desktop);
+      padding-right: var(--padding-desktop);
     }
-
-    @media (min-width: 1024px) {
-      .main-header {
-        padding-left: var(--padding-desktop);
-        padding-right: var(--padding-desktop);
-      }
-    }
+  }
   .desktop-navbar{
     @apply hidden md:flex justify-between text-lg;
   }
@@ -120,6 +142,14 @@ COMPONENTES REUTILIZABLES
   }
   .nav-link-active{
     @apply font-bold;
+  }
+
+  /*======== Dropdown menu styles ======= */
+  .dropdown-menu{
+    @apply fixed inset-0 bg-background md:hidden z-40;
+  }
+  .mobile-navbar{
+    @apply fixed top-0 left-0 w-full h-full bg-background z-50 md:hidden transform transition-transform duration-300 ease-in-out;
   }
 }
 

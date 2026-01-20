@@ -3,43 +3,44 @@
 import { useState } from "react";
 import BurgerMenu from "@/components/ui/burger-menu";
 import NavbarDesktop from "./navbar";
-import Image from "next/image";
 import '@/app/globals.css';
+import MobileMenu from "./mobilemenu";
+import LogoImage from "@/components/ui/logo-image";
+import CartButton from "@/components/ui/sidecartButton";
+import TopStrip from "@/components/ui/header-top-script";
 
 export default function Header() {
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [sideCartOpen, setSideCartOpen] = useState(false);
 
     return (
-        <header className="header">
-            <div className="top-strip">
-                <div className="scroll-text">
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
+        <>
+            <header className="header">
+                <TopStrip />
+                <div className="main-header">
+                    {/* Mobile/Tablet layout: burger-menu, app-logo, cart-icon */}
+                    <div className="header-mobile-tablet md:hidden">
+                        <BurgerMenu
+                            isOpen={mobileMenuOpen}
+                            onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        />
+                        <LogoImage />
+                        <CartButton onToggle={() => setSideCartOpen(!sideCartOpen)} />
+                    </div>
+
+                    {/* Desktop layout: app-logo, NavbarDesktop, cart-icon */}
+                    <div className="header-desktop hidden md:flex md:justify-between md:items-center md:w-full md:gap-8">
+                        <LogoImage />
+                        <NavbarDesktop />
+                        <CartButton onToggle={() => setSideCartOpen(!sideCartOpen)} />
+                    </div>
                 </div>
-                <div className="scroll-text">
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                    <p>ENVÍO INTERNACIONAL GRATUITO A PARTIR DE 100€</p>
-                </div>
-            </div>
-            <div className="main-header">
-                <BurgerMenu
-                    isOpen={mobileMenuOpen}
-                    onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
-                />
-                <NavbarDesktop />
-                <Image src="/icons/compras.png" alt="cart_icon" width={50} height={50} />
-            </div>
-        </header>
+            </header>
+            <MobileMenu
+                isOpen={mobileMenuOpen}
+                onClose={() => setMobileMenuOpen(false)}
+            />
+        </>
     );
 }
