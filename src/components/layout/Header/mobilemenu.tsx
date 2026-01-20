@@ -1,6 +1,5 @@
 'use client';
 import '@/app/globals.css';
-import { link } from 'fs';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
@@ -39,13 +38,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
     return (
         <>
-            {/* Menu */}
-            <nav
-                className={`
-                    fixed top-0 left-0 w-full h-full bg-white z-50 md:hidden
-                    transform transition-transform duration-300 ease-in-out
-                    ${isOpen ? 'translate-y-0' : '-translate-y-full'}
-                `}
+            <nav className={
+                `fixed top-0 left-0 w-full h-full bg-background z-50 md:hidden transform transition-transform duration-300 ease-in-out
+                ${isOpen ? 'translate-y-0' : '-translate-y-full'}`
+            }
             >
                 <ul className="flex flex-col gap-6 p-6 mt-30">
                     {Links.map((link) => {
@@ -54,7 +50,8 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             <li key={link.name}>
                                 <Link
                                     href={link.href}
-                                    className={`text-xl font-semibold transition-colors ${isActive ? 'text-main_green' : 'text-foreground hover:text-main_green'
+                                    className={`text-xl  font-semibold transition-colors active:bg-light_gray
+                                        ${isActive ? 'text-main_green' : 'text-foreground hover:text-main_green font-extrabold'
                                         }`}
                                     onClick={onClose}
                                 >
@@ -65,6 +62,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     })}
                 </ul>
             </nav>
+            {/* Overlay para cerrar el menú al hacer clic fuera */}
+            {isOpen && (
+                <div
+                    className="fixed inset-0 mt-30 z-40 md:hidden"
+                    onClick={onClose}
+                />
+            )}
         </>
     );
 }

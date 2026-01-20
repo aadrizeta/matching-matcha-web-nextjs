@@ -20,17 +20,22 @@ export default function Header() {
                 <TopStrip />
                 <div className="main-header">
                     {/* Mobile/Tablet layout: burger-menu, app-logo, cart-icon */}
-                    <div className="header-mobile-tablet md:hidden">
+                    <div className="header-mobile-tablet">
                         <BurgerMenu
                             isOpen={mobileMenuOpen}
                             onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
                         />
-                        <LogoImage />
+                        <LogoImage
+                            onToggle={() => {
+                                setMobileMenuOpen(false);
+                                setSideCartOpen(false);
+                            }}
+                        />
                         <CartButton onToggle={() => setSideCartOpen(!sideCartOpen)} />
                     </div>
 
                     {/* Desktop layout: app-logo, NavbarDesktop, cart-icon */}
-                    <div className="header-desktop hidden md:flex md:justify-between md:items-center md:w-full md:gap-8">
+                    <div className="header-desktop">
                         <LogoImage />
                         <NavbarDesktop />
                         <CartButton onToggle={() => setSideCartOpen(!sideCartOpen)} />
