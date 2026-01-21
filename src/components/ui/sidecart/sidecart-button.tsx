@@ -27,7 +27,7 @@ export default function SideCartButton({ variant, onClick, disabled }: SideCartB
     const disabledClasses = 'bg-buttons-gray-bg text-buttons-gray-text';
 
     // Colores cuando está enabled
-    const enabledClasses = `${config.enabledBgColor} ${config.enabledTextColor}`;
+    const enabledClasses = `${config.enabledBgColor} ${config.enabledTextColor} hover:scale-105 transition-all duration-200 ease-in-out cursor-pointer `;
 
     return (
         <button
