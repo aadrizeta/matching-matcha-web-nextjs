@@ -5,7 +5,7 @@ import SideCartButton from '@/components/ui/sidecart/sidecart-button';
 
 export default function Home() {
   return (
-    <div className='h-400'>
+    <div>
       <p>Hola Mundo, esta es la página principal</p>
       <IgButton />
       <SideCartButton variant='purchase' onClick={() => alert('Comprar')} disabled={false} />
