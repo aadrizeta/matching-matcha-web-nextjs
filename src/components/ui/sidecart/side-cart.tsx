@@ -1,6 +1,7 @@
 import '@/app/globals.css';
 import SideCartButton from '@/components/ui/sidecart/sidecart-button';
 import Image from 'next/image';
+import { useRef, useState } from 'react';
 
 interface SideCartProps {
     isOpen: boolean;
@@ -8,12 +9,33 @@ interface SideCartProps {
 }
 
 export default function SideCart({ isOpen, onClose }: SideCartProps) {
+    const touchStartX = useRef(0);
+    const touchEndX = useRef(0);
+    const [isDragging, setIsDragging] = useState(false);
+
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+        touchStartX.current = e.changedTouches[0].screenX;
+        setIsDragging(true);
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+        touchEndX.current = e.changedTouches[0].screenX;
+        setIsDragging(false);
+
+        // Detectar swipe de izquierda a derecha (diferencia > 50px)
+        const swipeDistance = touchEndX.current - touchStartX.current;
+        if (swipeDistance > 50) {
+            onClose();
+        }
+    };
     return (
         <>
             <div
                 className={`sidecart ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
             >
-                <div className='w-full h-30 border-b justify-between items-center flex'>
+                <div className='w-full inset-x-0 h-27 border-b justify-between items-center flex mb-5'>
                     <Image src="/icons/cart.svg" alt="cart-icon" width={35} height={35} />
                     <h4 className='text-2xl'>Tu carrito</h4>
                     <div className='w-8.75 h-8.75 rounded-full flex items-center justify-center'>
@@ -26,9 +48,9 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                     <p className='text-xs'>No hay productos en el carrito</p>
                 </div>
 
-                <div className='fixed bottom-0 left-0 right-0 px-4 py-6 border-t bg-background flex justify-between gap-5 w-full md:w-112.5'>
+                <div className='fixed bottom-0 left-0 right-0 px-4 py-6 border-t bg-background flex justify-between gap-5 w-full'>
                     <SideCartButton variant='purchase' onClick={() => alert('Comprar')} disabled={false} />
-                    <SideCartButton variant='clear' onClick={() => alert('Vaciar carrito')} disabled={false} />
+                    <SideCartButton variant='clear' onClick={onClose} disabled={false} />
                 </div>
             </div>
             <div

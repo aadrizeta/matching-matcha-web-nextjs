@@ -10,6 +10,7 @@
   --dark_gray: rgb(70, 70, 70); /*burger_menu*/
   --accent_blue: #069fe6; /*cart_badge*/
   --main_green: #8B9B81;
+  --dark-green: #313429;
   /* ig_button_hover */
   --ig-hover-gradient: linear-gradient(45deg, #515bd4, #8134af, #dd2a7b, #f58529);
 
@@ -25,13 +26,6 @@
     --max-width-container: 1500px;
     /* 5xl en Tailwind */
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
 /*
 ========Fonts==========
@@ -56,6 +50,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-main_green: var(--main_green);
+  --color-dark-green: var(--dark-green);
   --color-accent_blue: var(--accent_blue);
   --color-light_gray: var(--light_gray);
   --color-dark_gray: var(--dark_gray);
@@ -77,6 +72,24 @@ COMPONENTES REUTILIZABLES
 ========================================
 */
 @layer components {
+
+  .padding-responsive {
+      @apply mx-auto max-w-container;
+      padding-left: var(--padding-mobile);
+      padding-right: var(--padding-mobile);
+  }
+  @media (min-width: 768px) {
+    .padding-responsive {
+      padding-left: var(--padding-tablet);
+      padding-right: var(--padding-tablet);
+    }
+  }
+  @media (min-width: 1024px) {
+    .padding-responsive {
+      padding-left: var(--padding-desktop);
+      padding-right: var(--padding-desktop);
+    }
+  }
 
   .header{
     @apply sticky top-0 z-60 bg-white border-b;
@@ -101,25 +114,8 @@ COMPONENTES REUTILIZABLES
   /* ============== HEADER -- NAVBAR ============= */
   /* ============================================= */
   .main-header {
-    @apply flex justify-between items-center mx-auto max-w-container h-20;
-    padding-left: var(--padding-mobile);
-    padding-right: var(--padding-mobile);
+    @apply flex justify-between items-center mx-auto h-20;
   }
-
-  @media (min-width: 768px) {
-    .main-header {
-      @apply h-20;
-      padding-left: var(--padding-tablet);
-      padding-right: var(--padding-tablet);
-    }
-  }
-  @media (min-width: 1024px) {
-    .main-header {
-      padding-left: var(--padding-desktop);
-      padding-right: var(--padding-desktop);
-    }
-  }
-
   .logo-container {
     @apply shrink-0 mt-1.5 cursor-pointer;
   }
@@ -173,20 +169,14 @@ COMPONENTES REUTILIZABLES
   /* ============================================= */
   /* ================== SIDECART ================= */
   /* ============================================= */
-
-  /*v1 funciona en desktop */
-  /* .sidecart{
-    @apply fixed px-4 right-0 h-screen top-0 w-full md:w-112.5 bg-background z-70 rounded-[15px] transform transition-transform duration-300 ease-in-out;
-  } */
-
   /* v2 funciona en mobile */
   .sidecart{
-    @apply fixed px-4 w-full inset-y-0 right-0 md:w-112.5 bg-background z-70 rounded-[15px] transform transition-transform duration-300 ease-in-out;
+    @apply fixed px-4 w-full inset-y-0 right-0 md:w-112.5 2xl:w-150 bg-background z-70 rounded-[15px] transform transition-transform duration-150 ease-in-out;
   }
 
 
   .sidecart-button{
-    @apply cursor-pointer w-full h-15 rounded-2xl font-heading text-lg sm:h-14;
+    @apply w-full h-15 rounded-2xl font-heading text-lg sm:h-14;
   }
   .backdrop{
     @apply hidden md:block fixed top-0 left-0 right-0 bottom-0 bg-black/50 z-60 transform transition-transform duration-300 ease-in-out;

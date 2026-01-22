@@ -19,7 +19,7 @@ export default function Header() {
         <>
             <header className="header">
                 <TopStrip />
-                <div className="main-header">
+                <div className="main-header padding-responsive">
                     {/* Mobile/Tablet layout: burger-menu, app-logo, cart-icon */}
                     <div className="header-mobile-tablet">
                         <BurgerMenu
