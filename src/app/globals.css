@@ -90,6 +90,13 @@ COMPONENTES REUTILIZABLES
       padding-right: var(--padding-desktop);
     }
   }
+  .footer-padding {
+    @media(min-width: 1024px){
+      @apply mx-auto max-w-container;
+      padding-left: var(--padding-desktop);
+      padding-right: var(--padding-desktop);
+    }
+  }
 
   .header{
     @apply sticky top-0 z-60 bg-white border-b;
@@ -114,7 +121,7 @@ COMPONENTES REUTILIZABLES
   /* ============== HEADER -- NAVBAR ============= */
   /* ============================================= */
   .main-header {
-    @apply flex justify-between items-center mx-auto h-20;
+    @apply flex justify-between items-center h-20;
   }
   .logo-container {
     @apply shrink-0 mt-1.5 cursor-pointer;
@@ -155,10 +162,11 @@ COMPONENTES REUTILIZABLES
 
   /*======== BOTÓN INSTAGRAM  ========== */
   .ig-button{
-    @apply px-5 py-3 bg-main_green text-background rounded-2xl cursor-pointer transition-all duration-300 ease-out hover:scale-105;
+    @apply px-5 py-3 bg-background cursor-pointer transition-all duration-300 ease-out hover:scale-105 text-foreground;
   }
 
   .ig-button:hover{
+    @apply text-background;
     background: var(--ig-hover-gradient);
   }
 
