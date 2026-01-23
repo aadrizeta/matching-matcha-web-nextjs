@@ -1,11 +1,12 @@
 'use client';
 import '@/app/globals.css'
+import MainBanner from '@/components/layout/HomePage/main-banner/main-banner';
 
 export default function Home() {
   return (
     <>
       <div className='h-[2000px]'>
-        <p>Hola mundo, esta es la página principal</p>
+        <MainBanner />
       </div>
     </>
   );

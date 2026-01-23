@@ -29,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        <main className="padding-responsive">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
