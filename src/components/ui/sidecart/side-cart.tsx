@@ -48,7 +48,7 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                     <p className='text-xs'>No hay productos en el carrito</p>
                 </div>
 
-                <div className='fixed bottom-0 left-0 right-0 px-4 py-6 border-t bg-background flex justify-between gap-5 w-full'>
+                <div className='fixed bottom-0 left-0 right-0 px-4 py-10 border-t bg-background flex justify-between gap-5 w-full'>
                     <SideCartButton variant='purchase' onClick={() => alert('Comprar')} disabled={false} />
                     <SideCartButton variant='clear' onClick={onClose} disabled={false} />
                 </div>

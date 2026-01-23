@@ -13,6 +13,7 @@
   --main_green: #8B9B81;
   --dark-green: #313429;
   --main-banner: #E9E9E9;
+  --light-yellow: #F8F7F1;
   /* ig_button_hover */
   --ig-hover-gradient: linear-gradient(45deg, #515bd4, #8134af, #dd2a7b, #f58529);
 
@@ -61,6 +62,7 @@
   --color-buttons-gray-text: var(--buttons-gray-text);
   --color-main-banner: var(--main-banner);
   --color-light-green: var(--light-green);
+  --color-light-yellow: var(--light-yellow);
 
   /* ===== FUENTES ===== */
   --font-heading: 'Encabezados', Arial, Helvetica, sans-serif;
