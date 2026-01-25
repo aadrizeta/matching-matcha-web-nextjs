@@ -8,7 +8,7 @@ import MobileMenu from "./mobilemenu";
 import LogoImage from "@/components/ui/header/logo-image";
 import CartButton from "@/components/ui/header/sidecartButton";
 import TopStrip from "@/components/ui/header/header-top-strip";
-import SideCart from "@/components/ui/sidecart/side-cart";
+import SideCart from "@/components/cart/side-cart";
 
 export default function Header() {
 
