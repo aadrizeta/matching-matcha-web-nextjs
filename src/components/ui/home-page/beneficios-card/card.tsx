@@ -6,10 +6,10 @@ const Beneficios = [
         icon: "/icons/Iconos-beneficios/cara.png",
         title: "Mejora la salud de la piel",
         description:
-            "El té matcha es rico en antioxidantes que ayudan a combatir el daño causado por los radicales libres, contribuyendo a una piel más sana, luminosa y con signos de envejecimiento reducidos.",
+            "Los antioxidantes del té matcha ayudan a combatir el daño causado por los radicales libres, contribuyendo a una piel más sana, luminosa y con signos de envejecimiento reducidos.",
     },
     {
-        icon: "/icons/Iconos-beneficios/corazon.png",
+        icon: "/icons/Iconos-beneficios/salud.png",
         title: "Promueve la salud del corazón",
         description:
             "Consumir matcha puede ayudar a reducir los niveles de colesterol LDL y mejorar la circulación, lo que favorece una mejor salud cardiovascular.",
@@ -27,7 +27,7 @@ const Beneficios = [
             "Gracias a la L-teanina, el matcha promueve un estado de alerta relajada, mejorando la concentración y la claridad mental sin causar nerviosismo.",
     },
     {
-        icon: "/icons/Iconos-beneficios/ligero.png",
+        icon: "/icons/Iconos-beneficios/energia.svg",
         title: "Aumenta los niveles de energía",
         description:
             "Contiene cafeína de liberación gradual, lo que proporciona energía sostenida y estable a lo largo del día, evitando picos bruscos.",
@@ -46,17 +46,19 @@ export default function BeneficiosCards() {
             {Beneficios.map((beneficio) => (
                 <div
                     key={beneficio.title}
-                    className="bg-background rounded-2xl lg:rounded-none p-6 flex flex-col items-start gap-4 shadow-sm"
+                    className="bg-background rounded-2xl lg:rounded-none p-5 md:p-8 flex flex-col items-start gap-2 shadow-sm"
                 >
-                    <Image
-                        src={beneficio.icon}
-                        alt={beneficio.title}
-                        width={48}
-                        height={48}
-                    />
+                    <div className="rounded-full p-3 md:p-4 bg-light-yellow">
+                        <Image
+                            src={beneficio.icon}
+                            alt={beneficio.title}
+                            width={40}
+                            height={40}
+                        />
+                    </div>
 
-                    <h3 className="text-lg font-semibold">{beneficio.title}</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <h3 className="text-xl font-semibold">{beneficio.title}</h3>
+                    <p className="text-base text-muted-foreground">
                         {beneficio.description}
                     </p>
                 </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BurgerMenu from "@/components/ui/header/burger-menu";
 import NavbarDesktop from "./navbar";
 import '@/app/globals.css';
@@ -14,10 +14,28 @@ export default function Header() {
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [sideCartOpen, setSideCartOpen] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY < lastScrollY || currentScrollY < 20) {
+                setIsVisible(true);
+            } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                setIsVisible(false);
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollY]);
 
     return (
         <>
-            <header className="header">
+            <header className={`header ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
                 <TopStrip />
                 <div className="main-header padding-responsive">
                     {/* Mobile/Tablet layout: burger-menu, app-logo, cart-icon */}

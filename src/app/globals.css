@@ -26,8 +26,7 @@
     /* 32px - Desktop (lg: 1024px) */
 
     /* ===== MAX-WIDTH ===== */
-    --max-width-container: 1500px;
-    /* 5xl en Tailwind */
+    --max-width-container: 1200px;
 }
 
 /*
@@ -104,9 +103,9 @@ COMPONENTES REUTILIZABLES
     }
   }
 
-  .header{
-    @apply sticky top-0 z-60 bg-white border-b;
-  }
+.header {
+  @apply fixed top-0 left-0 right-0 w-full z-60 bg-background shadow-md transition-transform duration-300 ease-in-out;
+}
   /* ============================================= */
   /*==========HEADER --TOP STRIP SCROLL============*/
   /* ============================================= */
@@ -127,7 +126,7 @@ COMPONENTES REUTILIZABLES
   /* ============== HEADER -- NAVBAR ============= */
   /* ============================================= */
   .main-header {
-    @apply flex justify-between items-center h-20;
+    @apply z-70 flex justify-between items-center h-20;
   }
   .logo-container {
     @apply shrink-0 mt-1.5 cursor-pointer;
@@ -185,7 +184,7 @@ COMPONENTES REUTILIZABLES
   /* ============================================= */
   /* v2 funciona en mobile */
   .sidecart{
-    @apply fixed px-4 w-full inset-y-0 right-0 md:w-112.5 2xl:w-150 bg-background z-70 rounded-[15px] transform transition-transform duration-150 ease-in-out;
+    @apply fixed px-4 w-full inset-y-0 right-0 md:w-120 2xl:w-150 bg-background z-70 transform transition-transform duration-150 ease-in-out;
   }
 
 
