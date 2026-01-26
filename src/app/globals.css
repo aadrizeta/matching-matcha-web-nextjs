@@ -13,7 +13,7 @@
   --main_green: #8B9B81;
   --dark-green: #313429;
   --main-banner: #E9E9E9;
-  --light-yellow: #F8F7F1;
+  --light-yellow: #f8f7f1;
   /* ig_button_hover */
   --ig-hover-gradient: linear-gradient(45deg, #515bd4, #8134af, #dd2a7b, #f58529);
 
@@ -26,7 +26,7 @@
     /* 32px - Desktop (lg: 1024px) */
 
     /* ===== MAX-WIDTH ===== */
-    --max-width-container: 1200px;
+    --max-width-container: 1400px;
 }
 
 /*
@@ -206,5 +206,5 @@ body {
   }
 }
 h1, h2{
-  max-width: 450px;
+  max-width: 600px;
 }
