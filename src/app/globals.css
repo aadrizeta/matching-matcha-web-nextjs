@@ -126,7 +126,7 @@ COMPONENTES REUTILIZABLES
   /* ============== HEADER -- NAVBAR ============= */
   /* ============================================= */
   .main-header {
-    @apply z-70 flex justify-between items-center h-20;
+    @apply z-70 flex justify-between items-center h-15 md:h-20;
   }
   .logo-container {
     @apply shrink-0 mt-1.5 cursor-pointer;
