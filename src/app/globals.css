@@ -178,6 +178,9 @@ COMPONENTES REUTILIZABLES
   .bg-ig-hover-gradient{
     background: var(--ig-hover-gradient);
   }
+  .contact-card{
+    @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background p-5 flex flex-col gap-5 z-70 rounded-lg shadow-lg w-100 md:w-120 px-10
+  }
 
   /* ============================================= */
   /* ================== SIDECART ================= */

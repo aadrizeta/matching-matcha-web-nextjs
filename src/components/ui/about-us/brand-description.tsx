@@ -11,7 +11,7 @@ export default function BrandDescription() {
             </div>
             <div className="relative w-full max-w-130 aspect-square mx-auto lg:mx-0 lg:shrink-0">
                 <Image
-                    src="/images/taza-matcha-latte.png"
+                    src="/images/taza-matcha-latte.webp"
                     alt="taza matcha latte"
                     fill
                     className="object-contain"

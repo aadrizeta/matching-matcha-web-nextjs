@@ -10,11 +10,11 @@ const carouselImages = [
         alt: 'Matching Matcha - Imagen 1'
     },
     {
-        src: '/images/carousel/carrusel2.jpeg',
+        src: '/images/carousel/carrusel2.webp',
         alt: 'Matching Matcha - Imagen 2',
     },
     {
-        src: '/images/carousel/carrusel1.jpeg',
+        src: '/images/carousel/carrusel3.webp',
         alt: 'Matching Matcha - Imagen 3',
     },
 ]

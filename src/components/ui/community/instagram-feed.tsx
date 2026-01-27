@@ -52,7 +52,7 @@ export default function InstagramFeed() {
         <section className="pt-20 padding-responsive">
             <div
                 className="elfsight-app-8f278c7a-662d-4231-9802-d94c96b13e3e"
-                data-elfsight-app-lazy
+                data-elfsight-app
             ></div>
         </section>
     );
