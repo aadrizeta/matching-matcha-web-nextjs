@@ -52,7 +52,7 @@ export default function MainBanner() {
             onMouseLeave={() => setIsPaused(false)}
         >
             {/* Contenedor con aspect ratio para mantener proporciones */}
-            <div className="relative w-full aspect-video max-h-[70vh]">
+            <div className="relative w-full aspect-7/5 max-h-[50vh]">
                 {/* Imágenes del carrusel */}
                 {carouselImages.map((image, index) => (
                     <div
@@ -72,8 +72,7 @@ export default function MainBanner() {
                     </div>
                 ))}
 
-                {/* Botón anterior */}
-                <button
+                {/* <button
                     onClick={prevSlide}
                     className="absolute left-4 top-1/2 -translate-y-1/2 z-20
                         w-10 h-10 md:w-12 md:h-12
@@ -84,19 +83,9 @@ export default function MainBanner() {
                         backdrop-blur-sm"
                     aria-label="Imagen anterior"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="w-5 h-5 md:w-6 md:h-6"
-                    >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                    </svg>
+                    <Image src="/icons/atras (1).png" alt="alt" width={50} height={50} />
                 </button>
 
-                {/* Botón siguiente */}
                 <button
                     onClick={nextSlide}
                     className="absolute right-4 top-1/2 -translate-y-1/2 z-20
@@ -109,17 +98,17 @@ export default function MainBanner() {
                         backdrop-blur-sm"
                     aria-label="Imagen siguiente"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="w-5 h-5 md:w-6 md:h-6"
-                    >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                    </svg>
-                </button>
+                    <Image src="/icons/flecha.png" alt="alt" width={50} height={50} />
+                </button> */}
+
+                {/* Contenedor centrado para el título */}
+                <div className="absolute inset-0 z-15 flex items-center justify-center">
+                    <div className="text-center px-5 max-w-3xl bg-black/10 backdrop-blur-xs py-5 rounded-2xl">
+                        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold font-heading text-background">
+                            Bienvenido a Matching Matcha
+                        </h1>
+                    </div>
+                </div>
 
                 {/* Indicadores (dots) */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
