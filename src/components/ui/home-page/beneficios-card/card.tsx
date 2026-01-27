@@ -41,6 +41,7 @@ const Beneficios = [
 ];
 
 export default function BeneficiosCards() {
+
     return (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {Beneficios.map((beneficio) => (
