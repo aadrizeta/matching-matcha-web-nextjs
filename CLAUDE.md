@@ -5,6 +5,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 Matching Matcha is a Spanish-language e-commerce website for premium matcha tea products, built with Next.js 16 and React 19.
+The project is a headless e-commerce linked with shopify via Storefront API
+When the project is ready it will be hosted in a VPS using docker
 
 ## Commands
 
