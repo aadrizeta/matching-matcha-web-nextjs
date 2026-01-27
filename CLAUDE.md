@@ -5,8 +5,26 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 Matching Matcha is a Spanish-language e-commerce website for premium matcha tea products, built with Next.js 16 and React 19.
-The project is a headless e-commerce linked with shopify via Storefront API
-When the project is ready it will be hosted in a VPS using docker
+The project is a headless e-commerce linked with Shopify via Storefront API.
+Production site: https://matchingmatcha.es
+
+## Git Workflow
+
+- **`main`** - Production branch. Pushing here triggers auto-deployment to VPS.
+- **`dev`** - Development branch. Use for all development work.
+
+```bash
+# Daily development (on dev branch)
+git add .
+git commit -m "your message"
+git push origin dev
+
+# Deploy to production (merge dev into main)
+git checkout main
+git merge dev
+git push origin main    # triggers auto-deploy
+git checkout dev        # back to dev
+```
 
 ## Commands
 
@@ -15,6 +33,13 @@ pnpm dev          # Start development server at localhost:3000
 pnpm build        # Production build
 pnpm lint         # Run ESLint
 ```
+
+## Deployment
+
+- **Hosting**: VPS with Docker container on port 3001
+- **Reverse proxy**: Apache2 with Let's Encrypt SSL
+- **CI/CD**: GitHub Actions (`.github/workflows/deploy.yml`)
+- Pushes to `main` auto-deploy via SSH to VPS
 
 ## Architecture
 
