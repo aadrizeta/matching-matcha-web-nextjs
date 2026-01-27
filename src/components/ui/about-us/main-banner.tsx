@@ -52,7 +52,7 @@ export default function MainBanner() {
             onMouseLeave={() => setIsPaused(false)}
         >
             {/* Contenedor con aspect ratio para mantener proporciones */}
-            <div className="relative w-full aspect-7/5 max-h-[50vh]">
+            <div className="relative w-full aspect-7/5 max-h-[60vh]">
                 {/* Imágenes del carrusel */}
                 {carouselImages.map((image, index) => (
                     <div
