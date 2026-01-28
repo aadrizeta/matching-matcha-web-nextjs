@@ -8,10 +8,12 @@ interface BurgerMenuProps {
 export default function BurgerMenu({ isOpen, onToggle }: BurgerMenuProps) {
     return (
         <button
+            id="menu_button"
             onClick={onToggle}
             aria-label={isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
+            title={isOpen ? 'Cerrar menú' : 'Abrir menú'}
             className={`relative w-7.5 h-7.5 cursor-pointer`}
         >
             {/* Bar 1 */}
