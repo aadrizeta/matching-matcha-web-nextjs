@@ -7,7 +7,9 @@ export default function Home() {
   return (
     <>
       <MainBanner />
-      <div className="h-200"></div>
+      <div className="h-200">
+        <p>Aquí irá la descripción del producto y la selección de productos</p>
+      </div>
       <BeneficiosMatcha />
     </>
   );

@@ -36,7 +36,7 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                 onTouchEnd={handleTouchEnd}
             >
                 <div className='w-full inset-x-0 h-27 border-b justify-between items-center flex mb-5'>
-                    <Image src="/icons/cart.svg" alt="cart-icon" width={35} height={35} />
+                    <Image src="/icons/iconos-cart/cart.svg" alt="cart-icon" width={35} height={35} />
                     <h4 className='text-2xl'>Tu carrito</h4>
                     <div className='w-8.75 h-8.75 rounded-full flex items-center justify-center'>
                         <button className='font-heading text-xl' onClick={onClose}>X</button>
@@ -44,7 +44,7 @@ export default function SideCart({ isOpen, onClose }: SideCartProps) {
                 </div>
 
                 <div className='flex-1 text-center flex flex-col items-center justify-center overflow-y-auto pb-40'>
-                    <Image src="/icons/carro-vacio.svg" alt="empty-cart-icon" width={100} height={100} />
+                    <Image src="/icons/iconos-cart/carro-vacio.svg" alt="empty-cart-icon" width={100} height={100} />
                     <p className='text-xs'>No hay productos en el carrito</p>
                 </div>
 
