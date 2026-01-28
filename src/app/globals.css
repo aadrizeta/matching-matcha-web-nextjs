@@ -12,6 +12,7 @@
   --light-green: #75895D;
   --main_green: #8B9B81;
   --dark-green: #313429;
+  --button-dark-green: #454d30;
   --main-banner: #ececec;
   --light-yellow: #f8f7f1;
   /* ig_button_hover */
@@ -62,6 +63,7 @@
   --color-main-banner: var(--main-banner);
   --color-light-green: var(--light-green);
   --color-light-yellow: var(--light-yellow);
+  --color-button-dark-green: var(--button-dark-green);
 
   /* ===== FUENTES ===== */
   --font-heading: 'Encabezados', Arial, Helvetica, sans-serif;
