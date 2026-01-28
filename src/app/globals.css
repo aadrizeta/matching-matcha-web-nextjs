@@ -34,14 +34,16 @@
 */
 @font-face {
   font-family: 'Encabezados';
-  src: url('../../public/fonts/Helvetica.woff') format('woff');
+  src: url('../../public/fonts/Helvetica.woff2') format('woff2'),
+       url('../../public/fonts/Helvetica.woff') format('woff');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face{
   font-family: 'Cuerpo';
-  src: url('../../public/fonts/parrafos.otf') format('opentype');
+  src: url('../../public/fonts/parrafos.woff2') format('woff2'),
+       url('../../public/fonts/parrafos.otf') format('opentype');
   font-style: normal;
   font-display: swap;
 }
@@ -120,6 +122,9 @@ COMPONENTES REUTILIZABLES
   .scroll-text{
     @apply flex justify-between items-center gap-12 overflow-hidden whitespace-nowrap shrink-0 text-foreground ;
     animation: scrollLeft 80s linear infinite;
+  }
+  .scroll-text.paused {
+    animation-play-state: paused;
   }
 
   /* ============================================= */

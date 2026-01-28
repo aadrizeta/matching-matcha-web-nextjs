@@ -7,7 +7,8 @@
       "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd Docker configuration for VPS deployment\n\n- Add Dockerfile with multi-stage build for Next.js standalone output\n- Add docker-compose.yml for container management\n- Add .dockerignore to exclude unnecessary files\n- Enable standalone output in next.config.ts\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(docker compose up:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(pnpm dev)"
     ]
   }
 }
