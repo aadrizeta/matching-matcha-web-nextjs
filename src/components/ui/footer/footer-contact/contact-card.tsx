@@ -21,11 +21,11 @@ export default function ContactCard({ isOpen, onClose }: ContactCardProps) {
                     <p className='font-heading text-lg'>© 2025 MatchingMatcha</p>
                 </div>
                 <div className='flex justify-between items-center'>
-                    <Image src="/icons/whatsapp.svg" alt="WhatsApp Icon" width={50} height={50} />
+                    <Image src="/icons/iconos-contacto/whatsapp.svg" alt="WhatsApp Icon" width={50} height={50} />
                     <p className='text-lg'>+34 604 853 984</p>
                 </div>
                 <div className='flex justify-between items-center'>
-                    <Image src="/icons/correo-electronico.svg" alt="Email Icon" width={50} height={50} />
+                    <Image src="/icons/iconos-contacto/correo-electronico.svg" alt="Email Icon" width={50} height={50} />
                     <p className='text-lg'>info@mathingmatcha.es</p>
                 </div>
             </div>

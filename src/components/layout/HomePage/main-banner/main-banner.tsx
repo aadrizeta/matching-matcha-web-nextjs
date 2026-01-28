@@ -12,7 +12,14 @@ export default function MainBanner() {
                     <ProductsButton />
                 </div>
                 <div>
-                    <Image src="/images/mockups-matcha.webp" alt="te natural y de vainilla" width={450} height={700} />
+                    <Image
+                        src="/images/mockups-matcha.webp"
+                        alt="te natural y de vainilla"
+                        width={450}
+                        height={700}
+                        priority
+                        sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, 450px"
+                    />
                 </div>
             </div>
         </section>
