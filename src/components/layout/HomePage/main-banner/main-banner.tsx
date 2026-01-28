@@ -14,10 +14,12 @@ export default function MainBanner() {
                 <div>
                     <Image
                         src="/images/mockups-matcha.webp"
-                        alt="te natural y de vainilla"
+                        alt="Matcha natural y matcha de vainilla Matching Matcha"
                         width={450}
                         height={700}
                         priority
+                        fetchPriority="high"
+                        quality={75}
                         sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, 450px"
                     />
                 </div>
