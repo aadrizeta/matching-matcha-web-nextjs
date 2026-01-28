@@ -38,7 +38,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
     return (
         <>
-            <nav className={
+            <nav
+                id="mobile-menu"
+                aria-hidden={!isOpen}
+                className={
                 `fixed top-0 left-0 w-full h-full bg-background z-50 md:hidden transform transition-transform duration-300 ease-in-out
                 ${isOpen ? 'translate-y-0' : '-translate-y-full'}`
             }

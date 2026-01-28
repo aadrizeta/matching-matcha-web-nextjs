@@ -9,7 +9,10 @@ export default function BurgerMenu({ isOpen, onToggle }: BurgerMenuProps) {
     return (
         <button
             onClick={onToggle}
-            className={`relative w-7.5 h-7.5 focus:outline-none cursor-pointer`}
+            aria-label={isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            className={`relative w-7.5 h-7.5 cursor-pointer`}
         >
             {/* Bar 1 */}
             <span
