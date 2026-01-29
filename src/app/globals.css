@@ -14,6 +14,7 @@
   --dark-green: #313429;
   --main-banner: #ececec;
   --light-yellow: #f8f7f1;
+  --button-green: #41492c;
   /* ig_button_hover */
   --ig-hover-gradient: linear-gradient(45deg, #515bd4, #8134af, #dd2a7b, #f58529);
 
@@ -32,13 +33,6 @@
 /*
 ========Fonts==========
 */
-@font-face {
-  font-family: 'Encabezados';
-  src: url('../../public/fonts/Helvetica.woff2') format('woff2');
-  font-style: normal;
-  font-display: swap;
-}
-
 @font-face{
   font-family: 'Cuerpo';
   src: url('../../public/fonts/parrafos.woff2') format('woff2');
@@ -62,9 +56,10 @@
   --color-main-banner: var(--main-banner);
   --color-light-green: var(--light-green);
   --color-light-yellow: var(--light-yellow);
+  --color-button-green: var(--button-green);
 
   /* ===== FUENTES ===== */
-  --font-heading: 'Encabezados', Arial, Helvetica, sans-serif;
+  --font-heading: Helvetica, Arial, sans-serif;
   --font-body: 'Cuerpo', Arial, Helvetica, sans-serif;
 
   /* ==== MAX-WIDTH CONTAINER ==== */

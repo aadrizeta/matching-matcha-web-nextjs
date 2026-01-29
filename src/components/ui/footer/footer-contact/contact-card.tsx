@@ -1,5 +1,6 @@
 import '@/app/globals.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface ContactCardProps {
     isOpen: boolean;
@@ -26,7 +27,9 @@ export default function ContactCard({ isOpen, onClose }: ContactCardProps) {
                 </div>
                 <div className='flex justify-between items-center'>
                     <Image src="/icons/iconos-contacto/correo-electronico.svg" alt="Email Icon" width={50} height={50} />
-                    <p className='text-lg'>info@mathingmatcha.es</p>
+                    <Link href="mailto:info@matchingmatcha.es" target="_blank">
+                        <p>info@matchingmatcha.es</p>
+                    </Link>
                 </div>
             </div>
         </>

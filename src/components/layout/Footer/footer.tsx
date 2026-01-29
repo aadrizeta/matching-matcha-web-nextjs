@@ -3,7 +3,7 @@
 import SocialSection from '@/components/ui/footer/footer-social/socialSection';
 import ContactSection from '@/components/ui/footer/footer-contact/contactSection';
 import ContactCard from '@/components/ui/footer/footer-contact/contact-card';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Footer() {
 
