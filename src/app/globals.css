@@ -34,16 +34,14 @@
 */
 @font-face {
   font-family: 'Encabezados';
-  src: url('../../public/fonts/Helvetica.woff2') format('woff2'),
-       url('../../public/fonts/Helvetica.woff') format('woff');
+  src: url('../../public/fonts/Helvetica.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face{
   font-family: 'Cuerpo';
-  src: url('../../public/fonts/parrafos.woff2') format('woff2'),
-       url('../../public/fonts/parrafos.otf') format('opentype');
+  src: url('../../public/fonts/parrafos.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
 }

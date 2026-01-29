@@ -15,6 +15,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/parrafos.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>
         <Header />
         <div className="h-22 md:h-27 bg-main-banner"></div>

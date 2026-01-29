@@ -11,14 +11,15 @@ export default function MainBanner() {
                     <h2 className='hidden md:block text-2xl max-w-150'>Disfruta del auténtico té matcha importado de japón</h2>
                     <ProductsButton />
                 </div>
-                <div>
+                <div className='w-full, md:w-auto flex justify-center'>
                     <Image
                         src="/images/mockups-matcha.webp"
                         alt="te natural y de vainilla"
                         width={450}
                         height={700}
                         priority
-                        sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, 450px"
+                        fetchPriority="high"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 350px, 450px"
                     />
                 </div>
             </div>

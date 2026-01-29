@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <MainBanner />
-      <div className="h-200">
+      <div className="h-100 flex justify-center items-center">
         <p>Aquí irá la descripción del producto y la selección de productos</p>
       </div>
       <BeneficiosMatcha />
