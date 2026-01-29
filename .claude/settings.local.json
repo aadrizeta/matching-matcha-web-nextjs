@@ -8,7 +8,10 @@
       "Bash(docker compose up:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(pnpm dev)"
+      "Bash(pnpm dev)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(powershell -Command \"Stop-Process -Id 5832 -Force\")"
     ]
   }
 }
