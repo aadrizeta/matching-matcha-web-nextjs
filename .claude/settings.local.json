@@ -11,7 +11,10 @@
       "Bash(pnpm dev)",
       "Bash(netstat:*)",
       "Bash(findstr:*)",
-      "Bash(powershell -Command \"Stop-Process -Id 5832 -Force\")"
+      "Bash(powershell -Command \"Stop-Process -Id 5832 -Force\")",
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)"
     ]
   }
 }
