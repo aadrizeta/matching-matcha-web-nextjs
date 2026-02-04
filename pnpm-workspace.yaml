@@ -3,3 +3,6 @@ packages:
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+
+patchedDependencies:
+  next: patches/next.patch
