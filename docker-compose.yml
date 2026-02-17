@@ -5,6 +5,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3001:3000"
-    environment:
-      - NODE_ENV=production
     restart: unless-stopped
+    environment:
+      - INSTAGRAM_ACCESS_TOKEN=${INSTAGRAM_ACCESS_TOKEN}
+      - INSTAGRAM_BUSINESS_ID=${INSTAGRAM_BUSINESS_ID}
