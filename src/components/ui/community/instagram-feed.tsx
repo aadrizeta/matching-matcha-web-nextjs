@@ -1,59 +1,89 @@
 'use client';
-import { useEffect, useRef } from "react";
+
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import type { InstagramPost } from '@/types/instagram';
+
+function formatDate(timestamp: string): string {
+  return new Date(timestamp).toLocaleDateString('es-ES', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+}
+
+function Skeleton() {
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+      {Array.from({ length: 8 }).map((_, i) => (
+        <div key={i} className="aspect-square bg-gray-200 animate-pulse rounded-sm" />
+      ))}
+    </div>
+  );
+}
 
 export default function InstagramFeed() {
-    const metricsRef = useRef({ startTime: 0 });
+  const [posts, setPosts] = useState<InstagramPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-    useEffect(() => {
-        console.log('⏱️ InstagramFeed component mounted');
-        metricsRef.current.startTime = performance.now();
+  useEffect(() => {
+    fetch('/api/instagram')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch');
+        return res.json();
+      })
+      .then((json) => setPosts(json.data))
+      .catch(() => setError(true))
+      .finally(() => setLoading(false));
+  }, []);
 
-        // Cargar el script de Elfsight si no está ya cargado
-        const existingScript = document.querySelector('script[src="https://elfsightcdn.com/platform.js"]');
+  if (loading) return <section className="pt-20 padding-responsive"><Skeleton /></section>;
 
-        if (!existingScript) {
-            const script = document.createElement('script');
-            script.src = 'https://elfsightcdn.com/platform.js';
-            script.async = true;
-
-            script.onload = () => {
-                const scriptTime = performance.now() - metricsRef.current.startTime;
-                console.log(`✅ Elfsight script loaded in ${scriptTime.toFixed(2)}ms`);
-            };
-
-            script.onerror = () => {
-                console.error('❌ Error loading Elfsight script');
-            };
-
-            document.body.appendChild(script);
-        } else {
-            console.log('✅ Elfsight script already present');
-        }
-
-        // Observar cuando el widget se renderiza
-        const observer = new MutationObserver(() => {
-            const widgetContainer = document.querySelector('.elfsight-app-8f278c7a-662d-4231-9802-d94c96b13e3e');
-            if (widgetContainer && widgetContainer.children.length > 0) {
-                const totalTime = performance.now() - metricsRef.current.startTime;
-                console.log(`🎉 Widget fully rendered in ${totalTime.toFixed(2)}ms`);
-                observer.disconnect();
-            }
-        });
-
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
-
-        return () => observer.disconnect();
-    }, []);
-
+  if (error || posts.length === 0) {
     return (
-        <section className="pt-20 padding-responsive">
-            <div
-                className="elfsight-app-8f278c7a-662d-4231-9802-d94c96b13e3e"
-                data-elfsight-app
-            ></div>
-        </section>
+      <section className="pt-20 padding-responsive">
+        <p className="text-center text-gray-500 py-12">
+          No se pudieron cargar las publicaciones. Inténtalo más tarde.
+        </p>
+      </section>
     );
+  }
+
+  return (
+    <section className="pt-20 padding-responsive">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+        {posts.map((post) => (
+          <a
+            key={post.id}
+            href={post.permalink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative aspect-square overflow-hidden rounded-sm bg-gray-100"
+          >
+            <Image
+              src={post.media_url}
+              alt={post.caption?.slice(0, 100) || 'Post de Instagram'}
+              fill
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end">
+              <div className="w-full p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <div className="flex items-center justify-between text-white text-xs">
+                  <span className="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+                      <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+                    </svg>
+                    {post.like_count}
+                  </span>
+                  <span>{formatDate(post.timestamp)}</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
 }

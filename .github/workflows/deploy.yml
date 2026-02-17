@@ -1,8 +1,6 @@
 name: Deploy to VPS
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -18,6 +16,8 @@ jobs:
           script: |
             cd ${{ secrets.APP_PATH }}
             git config --global --add safe.directory ${{ secrets.APP_PATH }}
+            echo "INSTAGRAM_ACCESS_TOKEN=${{ secrets.INSTAGRAM_ACCESS_TOKEN }}" > .env
+            echo "INSTAGRAM_BUSINESS_ID=${{ secrets.INSTAGRAM_BUSINESS_ID }}" > .env
             git pull origin main
             docker compose down
             docker compose up -d --build
