@@ -6,7 +6,7 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 # Dependencies stage
 FROM base AS deps
 WORKDIR /app
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 COPY patches ./patches
 RUN pnpm install --frozen-lockfile
 
