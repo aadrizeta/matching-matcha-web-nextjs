@@ -5,6 +5,7 @@ RUN corepack enable && corepack prepare pnpm@9 --activate
 
 # Dependencies stage
 FROM base AS deps
+ENV NODE_ENV=development
 WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY patches ./patches
@@ -12,6 +13,7 @@ RUN pnpm install --frozen-lockfile
 
 # Build stage
 FROM base AS builder
+ENV NODE_ENV=production
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
